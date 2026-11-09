@@ -5,7 +5,7 @@ declare(strict_types=1);
 require __DIR__ . "/data.php";
 require __DIR__ . "/functions.php";
 
-$daftarKategori = ["Semua", "Makanan", "Minuman", "Fashion"];
+$daftarKategori = ["Semua", "Makanan", "Minuman", "Fashion", "Kerajinan"];
 
 // Ambil kategori dari URL, misal index.php?kategori=Minuman
 $kategoriDipilih = $_GET["kategori"] ?? "Semua";
@@ -55,6 +55,11 @@ $nilaiStok    = hitungNilaiStok($daftarProduk);
             <h2><?= e($produk["nama"]) ?></h2>
             <p class="kategori"><?= e($produk["kategori"]) ?> · <?= e($produk["kode"]) ?></p>
             <p class="harga"><?= formatRupiah($produk["harga"]) ?></p>
+<?php if (labelPromo($produk["harga"]) !== ""): ?>
+    <p class="promo">
+        <?= labelPromo($produk["harga"]) ?>
+    </p>
+<?php endif; ?>
             <p class="stok">Stok: <?= $produk["stok"] ?></p>
          </article>
     <?php endforeach; ?>
