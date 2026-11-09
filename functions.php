@@ -12,7 +12,7 @@ function statusStok(int $stok): string
 {
     return match (true) {
     $stok === 0 => "Habis",
-    $stok <= 10 => "Menipis",
+    $stok <= 5 => "Menipis",
     default     => "Tersedia",
     };
 }
@@ -48,4 +48,14 @@ function filterKategori(array $produk, string $kategori): array
 function e(string $teks): string
 {
     return htmlspecialchars($teks, ENT_QUOTES, 'UTF-8');
+}
+
+// Menambahkan label promo
+function labelPromo(int $harga): string
+{
+    if ($harga >= 100000) {
+        return "Gratis Ongkir";
+    }
+
+    return "";
 }

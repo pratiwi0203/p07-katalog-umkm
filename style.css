@@ -94,3 +94,9 @@ body {
     margin: 20px auto 0;
     color: #6b6b8a;
 }
+
+.promo {
+    color: green;
+    font-weight: bold;
+    margin-top: 8px;
+}
